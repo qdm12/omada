@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  omada:
+    build: https://github.com/qdm12/omada.git
+    image: qmcgaw/omada
+    container_name: omada
+    network_mode: bridge
+    init: true
+    ports:
+      - 8080:8080/tcp
+      - 8043:8043/tcp
+      - 27001:27001/udp
+      - 27002:27002/tcp
+      - 29810:29810/udp
+      - 29811:29811/tcp
+      - 29812:29812/tcp
+      - 29813:29813/tcp
+    environment:
+      - HTTPPORT=8080
+      - HTTPSPORT=8080
+    volumes:
+      - ./logs:/omada/logs
+      - ./data:/omada/data
+    restart: always

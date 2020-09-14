@@ -26,7 +26,7 @@ WORKDIR /omada
 COPY entrypoint.sh .
 ENTRYPOINT /omada/entrypoint.sh
 RUN set -x && apt-get update -y > /dev/null && \
-    apt-get install -y libcap-dev wget net-tools procps > /dev/null && \
+    apt-get install -y libcap-dev wget net-tools > /dev/null && \
     RELEASE_YEAR=`echo "${RELEASE_DATE}" | cut -c1-4` && \
     RELEASE_YEARMONTH=`echo "${RELEASE_DATE}" | cut -c1-6` && \
     wget -q "https://static.tp-link.com/${RELEASE_YEAR}/${RELEASE_YEARMONTH}/${RELEASE_DATE}/Omada_Controller_v${OMADA_VERSION}_linux_x64.tar.gz" -O omada.tar.gz && \
